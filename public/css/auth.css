@@ -1,0 +1,76 @@
+
+* {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+.div_auth {
+  width: 100%;       
+  max-width: 500px;  
+  margin: 0 auto;   
+}
+
+/* Títulos e Textos */
+main p {
+    padding-left: 30px;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Estilização dos Inputs */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: transparent;
+  border: 4px solid #000; 
+  border-radius: 15px;
+  box-sizing: border-box; 
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #444;
+}
+
+/* Botão de Login */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform 0.1s;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+button:active {
+  transform: scale(0.99);
+}

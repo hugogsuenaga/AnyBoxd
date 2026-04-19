@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+  </head>
+
+  <body>
+    <div class="backdrop"></div>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <div class="div_auth">
+        <p>Login</p>
+        <input
+          type="text"
+          id="ipt_email"
+          placeholder="Insira seu email"
+        /><br />
+        <input type="password" id="ipt_senha" placeholder="Insira sua senha" />
+        <button onclick="login()">Login</button>
+        <h3>
+          ainda nao tem uma conta? faça seu <a href="/singup">cadastro</a>
+        </h3>
+        <br />
+      </div>
+    </main>
+  </body>
+</html>
+<script>
+  fetch("/view/includes/header.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>

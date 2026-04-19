@@ -1,0 +1,31 @@
+// var ambiente_processo = 'producao';
+var ambiente_processo = 'desenvolvimento';
+
+var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
+// Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
+// A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
+
+require("dotenv").config({ path: caminho_env });
+
+var express = require("express");
+var path = require("path");
+var PORTA_APP = process.env.APP_PORT;
+var HOST_APP = process.env.APP_HOST;
+
+var app = express();
+
+var mainRouter = require("./src/routes/main");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", mainRouter);
+
+app.listen(PORTA_APP, function () {
+    console.log(`            
+    ✦ Anyboxd ✦\n
+    Servidor rodando em: http://${HOST_APP}:${PORTA_APP}
+    Ambiente: ${process.env.AMBIENTE_PROCESSO}
+    `);
+});

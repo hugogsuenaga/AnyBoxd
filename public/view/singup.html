@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sign Up</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+  </head>
+
+  <body>
+    <div class="backdrop"></div>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <div class="div_auth">
+        <p>Sign Up</p>
+        <input type="text" id="ipt_nome" placeholder="Nome Completo" /><br />
+        <input type="text" id="ipt_username" placeholder="Nome de Usuario" /><br />
+        <input type="text" id="ipt_email" placeholder="Email" />
+        <input type="password" id="ipt_senha" placeholder="Senha" />
+        <button onclick="login()">Sign Up</button>
+        <h3>Ja tem uma conta? faça o <a href="/login">login</a></h3>
+        <br />
+      </div>
+    </main>
+  </body>
+</html>
+<script>
+  fetch("/view/includes/header.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
