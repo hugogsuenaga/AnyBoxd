@@ -1,6 +1,6 @@
 const loginModel = require("../models/loginModel");
 
-exports.login = () => {
+exports.postLogin = (req, res) => {
   const { email, senha } = req.body;
 
   if (email == undefined) {
@@ -8,8 +8,8 @@ exports.login = () => {
   } else if (senha == undefined) {
     res.status(400).send("Sua senha está indefinida!");
   } else {
-    loginModel.login(email, senha);
-    then(function (resultadoAutenticar) {
+    loginModel.login(email, senha)
+    .then(function (resultadoAutenticar) {
       console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
       console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 

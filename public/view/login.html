@@ -60,19 +60,16 @@
     });
 
   function login() {
-    var emailVar = ipt_email.value;
-    var senhaVar = ipt_senha.value;
+    var email = ipt_email.value;
+    var senha = ipt_senha.value;
 
-    if (emailVar == "" || senhaVar == "") {
+    if (email == "" || senha == "") {
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
     }
-
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
+    console.log("FORM LOGIN: ", email);
+    console.log("FORM SENHA: ", senha);
 
     fetch("/login", {
       method: "POST",
@@ -80,8 +77,8 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar,
+        email: email,
+        senha: senha,
       }),
     })
       .then(function (resposta) {
@@ -103,7 +100,6 @@
 
           resposta.text().then((texto) => {
             console.error(texto);
-            finalizarAguardar(texto);
           });
         }
       })
@@ -112,9 +108,5 @@
       });
 
     return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
   }
 </script>

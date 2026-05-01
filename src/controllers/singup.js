@@ -3,8 +3,56 @@ const cadastrarModel = require("../models/cadastrarModel");
 function verNome(nome) {
   if (!nome) return false;
   let nomeCompleto = nome.split(" ")[1] != "";
-  let regra = /^[a-zA-ZÀ-ÿ\s]+$/;
-  if (regra.test(nome) && nomeCompleto) {
+  let temCaracteresEspeciais = false;
+  let char = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "_",
+    "=",
+    "+",
+    "[",
+    "]",
+    "{",
+    "}",
+    ";",
+    ":",
+    ",",
+    ".",
+    "<",
+    ">",
+    "/",
+    "?",
+    "|",
+    "`",
+    "~",
+    '"',
+    "'",
+  ];
+  for (let i = 0; i < senha.length; i++) {
+    if (nome.includes(char[i])) {
+      temCaracteresEspeciais = true;
+    }
+  }
+  if (!temCaracteresEspeciais && nomeCompleto) {
     return true;
   } else {
     console.log(1);
@@ -56,9 +104,45 @@ function verSenha(senha) {
   if (!senha) return false;
   let maiusculasEMinusculas = senha.toUpperCase() != senha;
   let tamanhoMinimo = senha.length >= 8;
-  let regra = /[^a-zA-ZÀ-ÿ\s]+$/;
-  let temCaracteresEspeciais = regra.test(senha);
-
+  let char = [
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "-",
+    "_",
+    "=",
+    "+",
+    "[",
+    "]",
+    "{",
+    "}",
+    ";",
+    ":",
+    ",",
+    ".",
+    "<",
+    ">",
+    "/",
+    "?",
+    "|",
+    "`",
+    "~",
+    '"',
+    "'",
+  ];
+  let temCaracteresEspeciais = false;
+  for (let i = 0; i < senha.length; i++) {
+    if (senha.includes(char[i])) {
+      temCaracteresEspeciais = true;
+    }
+  }
   if (temCaracteresEspeciais && tamanhoMinimo && maiusculasEMinusculas) {
     return true;
   } else {
@@ -79,7 +163,7 @@ exports.postSingup = async (req, res) => {
     cadastrarModel
       .cadastrar(nome, username, email, senha)
       .then(function (resultado) {
-res.status(201).json({ mensagem: "Cadastro realizado com sucesso!" });
+        res.status(201).json({ mensagem: "Cadastro realizado com sucesso!" });
       })
       .catch(function (erro) {
         console.log(erro);
@@ -102,5 +186,3 @@ res.status(201).json({ mensagem: "Cadastro realizado com sucesso!" });
     console.log("deu algum problema");
   }
 };
-
-
