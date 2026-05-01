@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/stars.css" />
   </head>
 
   <body>
@@ -18,16 +19,25 @@
     <div id="header-placeholder"></div>
 
     <main>
+      <div id="starL-placeholder"></div>
       <div class="div_auth">
-        <p>Sign Up</p>
-        <input type="text" id="ipt_nome" placeholder="Nome Completo" /><br />
-        <input type="text" id="ipt_username" placeholder="Nome de Usuario" /><br />
-        <input type="text" id="ipt_email" placeholder="Email" />
-        <input type="password" id="ipt_senha" placeholder="Senha" />
-        <button onclick="login()">Sign Up</button>
-        <h3>Ja tem uma conta? faça o <a href="/login">login</a></h3>
-        <br />
+        <form action="/singup" method="post">
+          <p>Sign Up</p>
+          <input type="text" id="ipt_nome" placeholder="Nome Completo" /><br />
+          <input
+            type="text"
+            id="ipt_username"
+            placeholder="Nome de Usuario"
+          /><br />
+          <input type="text" id="ipt_email" placeholder="Email" />
+          <input type="password" id="ipt_senha" placeholder="Senha" />
+          <button type="button" onclick="cadastrar()">Sign Up</button>
+          <h3>Ja tem uma conta? faça o <a href="/login">login</a></h3>
+          <div id="div_alerta" style="color: red; font-weight: bold"></div>
+          <br />
+        </form>
       </div>
+      <div id="starR-placeholder"></div>
     </main>
   </body>
 </html>
@@ -37,4 +47,42 @@
     .then((data) => {
       document.getElementById("header-placeholder").innerHTML = data;
     });
+
+  fetch("/view/includes/starL.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("starL-placeholder").innerHTML = data;
+    });
+
+  fetch("/view/includes/starR.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("starR-placeholder").innerHTML = data;
+    });
+
+  function cadastrar() {
+    const nome = document.getElementById("ipt_nome").value;
+    const username = document.getElementById("ipt_username").value;
+    const email = document.getElementById("ipt_email").value;
+    const senha = document.getElementById("ipt_senha").value;
+
+    fetch("/singup", {
+      method: "post",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        nome: nome,
+        username: username,
+        email: email,
+        senha: senha,
+      }),
+    }).then((res) => {
+      return res.json().then((json) => {
+        if (res.ok) {
+          window.location.href = "/login";
+        } else {
+          document.getElementById("div_alerta").innerHTML = json.mensagem;
+        }
+      });
+    });
+  }
 </script>

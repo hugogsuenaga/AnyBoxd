@@ -6,14 +6,14 @@
 }
 
 .div_auth {
-  width: 100%;       
-  max-width: 500px;  
-  margin: 0 auto;   
+  max-width: 600px;
+  min-width: 600px;
+  padding: 20px;
+  will-change: transform; 
 }
 
-/* Títulos e Textos */
 main p {
-    padding-left: 30px;
+  padding-left: 30px;
   align-items: center;
   font-size: 2rem;
   font-weight: bold;
@@ -35,7 +35,6 @@ a {
   font-weight: bold;
 }
 
-/* Estilização dos Inputs */
 input {
   width: 100%;
   padding: 12px;
@@ -52,7 +51,6 @@ input::placeholder {
   color: #444;
 }
 
-/* Botão de Login */
 button {
   width: 100%;
   padding: 12px;
@@ -72,5 +70,5 @@ button:hover {
 }
 
 button:active {
-  transform: scale(0.99);
+  transform: scaleY(0.95) scaleX(0.99);
 }

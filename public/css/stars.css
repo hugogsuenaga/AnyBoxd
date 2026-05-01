@@ -1,0 +1,51 @@
+.star-column {
+  position: absolute;
+  top: 70px; 
+  display: flex;
+  flex-direction: column;
+  gap: 60px; 
+  color: #000000; 
+  z-index: 0;
+}
+
+.star-column.left {
+  left: 12%;
+}
+
+.star-column.right {
+  right: 12%; 
+}
+
+.star-column svg {
+  stroke: black;
+  stroke-width: 1.5;
+  fill: none;
+  animation: floatIndividual 6s ease-in-out infinite;
+}
+
+.star-column svg:nth-child(1) {
+  animation-duration: 6s;
+}
+
+.star-column svg:nth-child(2) {
+  animation-duration: 8s;
+  animation-delay: -2s; 
+}
+
+.star-column svg:nth-child(3) {
+  animation-duration: 7s;
+  animation-delay: -4s;
+}
+
+.star-column.right svg {
+  animation-delay: -1s;
+}
+
+@keyframes floatIndividual {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(1px, -2px) rotate(2deg); }
+  50% { transform: translate(-1px, -0.5px) rotate(-2deg); }
+  75% { transform: translate(0.5px, 1.5px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
