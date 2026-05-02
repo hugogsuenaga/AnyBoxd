@@ -11,14 +11,14 @@ exports.postLogin = (req, res) => {
     loginModel.login(email, senha)
     .then(function (resultadoAutenticar) {
       console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-      console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+      console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); 
 
       if (resultadoAutenticar.length == 1) {
         console.log(resultadoAutenticar);
         res.json({
-          id: resultadoAutenticar[0].id,
-          email: resultadoAutenticar[0].email,
+          id: resultadoAutenticar[0].idUsuario,
           nome: resultadoAutenticar[0].nome,
+          email: resultadoAutenticar[0].email,
           senha: resultadoAutenticar[0].senha,
         });
       } else if (resultadoAutenticar.length == 0) {

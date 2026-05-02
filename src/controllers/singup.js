@@ -1,54 +1,48 @@
 const cadastrarModel = require("../models/cadastrarModel");
 
-function verNome(nome) {
+let charEsp = [
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "-",
+  "_",
+  "=",
+  "+",
+  "[",
+  "]",
+  "{",
+  "}",
+  ";",
+  ":",
+  ",",
+  ".",
+  "<",
+  ">",
+  "/",
+  "?",
+  "|",
+  "`",
+  "~",
+  '"',
+  "'",
+];
+let charNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+function verificarNome(nome) {
   if (!nome) return false;
-  let nomeCompleto = nome.split(" ")[1] != "";
+  let partes = nome.trim().split(" ")
+  let nomeCompleto = partes.length > 1 && partes[1].length > 0;
   let temCaracteresEspeciais = false;
-  let char = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "^",
-    "&",
-    "*",
-    "(",
-    ")",
-    "-",
-    "_",
-    "=",
-    "+",
-    "[",
-    "]",
-    "{",
-    "}",
-    ";",
-    ":",
-    ",",
-    ".",
-    "<",
-    ">",
-    "/",
-    "?",
-    "|",
-    "`",
-    "~",
-    '"',
-    "'",
-  ];
-  for (let i = 0; i < senha.length; i++) {
-    if (nome.includes(char[i])) {
+
+  for (let i = 0; i < nome.length; i++) {
+    if (charEsp.includes(nome[i]) || charNum.includes(nome[i])) {
       temCaracteresEspeciais = true;
     }
   }
@@ -60,7 +54,7 @@ function verNome(nome) {
   }
 }
 
-function verUsername(username) {
+function verificarUsername(username) {
   if (!username) return false;
   let tamanhoMinimo = username.length > 5;
   let palavraUnica = !username.includes(" ");
@@ -73,16 +67,28 @@ function verUsername(username) {
   }
 }
 
-function verEmail(email) {
-  if (!email) return false;
-  let temArroba = email.includes("@");
-  let temSoUmArroba = email.indexOf("@") == email.lastIndexOf("@");
-  let temPontoDpsDoArroba = email.lastIndexOf(".") > email.indexOf("@") + 1;
-  let temLocalPart = email.split("@")[0].length > 0;
-  let temDominio = email.split("@")[1].length > 0;
-  let temTLD = email.split(".")[1].length > 0;
+function verificarEmail(email) {
+if (!email) return false;
+
   let naoTemEspaco = !email.includes(" ");
   let tamanhoMinimo = email.length > 5;
+  let temArroba = email.includes("@");
+  
+  let partesArroba = email.split("@");
+  let temSoUmArroba = partesArroba.length === 2; 
+
+  let localPart = partesArroba[0] || "";
+  let dominioPart = partesArroba[1] || "";
+  let temLocalPart = localPart.length > 0;
+  let temDominio = dominioPart.length > 0;
+
+  let ultimaPosicaoPonto = email.lastIndexOf(".");
+  let posicaoArroba = email.indexOf("@");
+  
+  let temPontoDpsDoArroba = ultimaPosicaoPonto > posicaoArroba + 1;
+  
+  let partesPonto = email.split(".");
+  let temTLD = partesPonto.length > 1 && partesPonto[partesPonto.length - 1].length > 0;
 
   if (
     temArroba &&
@@ -91,7 +97,8 @@ function verEmail(email) {
     naoTemEspaco &&
     tamanhoMinimo &&
     temLocalPart &&
-    temDominio
+    temDominio &&
+    temTLD
   ) {
     return true;
   } else {
@@ -100,50 +107,29 @@ function verEmail(email) {
   }
 }
 
-function verSenha(senha) {
+
+function verificarSenha(senha) {
   if (!senha) return false;
-  let maiusculasEMinusculas = senha.toUpperCase() != senha;
+  let maiusculasEMinusculas =
+    senha.toUpperCase() != senha && senha.toLowerCase() != senha;
   let tamanhoMinimo = senha.length >= 8;
-  let char = [
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "^",
-    "&",
-    "*",
-    "(",
-    ")",
-    "-",
-    "_",
-    "=",
-    "+",
-    "[",
-    "]",
-    "{",
-    "}",
-    ";",
-    ":",
-    ",",
-    ".",
-    "<",
-    ">",
-    "/",
-    "?",
-    "|",
-    "`",
-    "~",
-    '"',
-    "'",
-  ];
   let temCaracteresEspeciais = false;
+  let temNumeros = false;
+
   for (let i = 0; i < senha.length; i++) {
-    if (senha.includes(char[i])) {
+    if (charEsp.includes(senha[i])) {
       temCaracteresEspeciais = true;
     }
+    if (charNum.includes(senha[i])) {
+      temNumeros = true;
+    }
   }
-  if (temCaracteresEspeciais && tamanhoMinimo && maiusculasEMinusculas) {
+  if (
+    temCaracteresEspeciais &&
+    tamanhoMinimo &&
+    maiusculasEMinusculas &&
+    temNumeros
+  ) {
     return true;
   } else {
     console.log(4);
@@ -154,12 +140,11 @@ function verSenha(senha) {
 exports.postSingup = async (req, res) => {
   const { nome, username, email, senha } = req.body;
   console.log(req.body);
-  if (
-    verNome(nome) &&
-    verUsername(username) &&
-    verEmail(email) &&
-    verSenha(senha)
-  ) {
+  let verNome = verificarNome(nome);
+  let verEmail = verificarEmail(email);
+  let verUsername = verificarUsername(username);
+  let verSenha = verificarSenha(senha);
+  if (verNome && verUsername && verEmail && verSenha) {
     cadastrarModel
       .cadastrar(nome, username, email, senha)
       .then(function (resultado) {
@@ -175,12 +160,11 @@ exports.postSingup = async (req, res) => {
       });
   } else {
     let msg = "";
-    if (!verNome(nome))
-      msg += `O nome deve conter sobrenome e apenas letras.<br>`;
-    if (!verUsername(username))
+    if (!verNome) msg += `O nome deve conter sobrenome e apenas letras.<br>`;
+    if (!verUsername)
       msg += `Username deve ter mais de 5 caracteres e sem espaços.<br>`;
-    if (!verEmail(email)) msg += `E-mail inválido.<br>`;
-    if (!verSenha(senha))
+    if (!verEmail) msg += `E-mail inválido.<br>`;
+    if (!verSenha)
       msg += `A senha deve ter 8+ caracteres, maiúsculas, minúsculas e símbolos.<br>`;
     return res.status(400).json({ mensagem: msg });
     console.log("deu algum problema");

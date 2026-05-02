@@ -15,12 +15,14 @@ var HOST_APP = process.env.APP_HOST;
 var app = express();
 
 var mainRouter = require("./src/routes/main");
+var postsRouter = require("./src/routes/posts")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", mainRouter);
+app.use("/posts", postsRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`            
