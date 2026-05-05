@@ -65,7 +65,7 @@ let exibirPosts = (posts) => {
                 <span class="post-nota">${notaEstrelas}</span>
                 <div class="post-footer">
                 <span class="numero-likes" id="numero-likes">${numeroLikes}</span>
-                <button class="btn-curtida-placeholder" data-id-post="${idPost}" onclick="curtir(this})">️
+                <button class="btn-curtida-placeholder" data-id-post="${idPost}" onclick="curtir(this)">️
                     <svg class="heart-button" id="heart-button" viewBox="0 0 24 24" fill="${foiCurtido}" stroke="black" 
                     stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
