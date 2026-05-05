@@ -60,7 +60,19 @@ main {
 .main-header__item a:hover,
 .main-header__item a.active {
   color: #575757;
-  font-weight: bold;
+}
+
+.btn {
+  background: none;
+  border-style: none;
+  font-size: 1.7ch;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+
+.btn:hover {
+  color: #575757;
 }
 
 .title {

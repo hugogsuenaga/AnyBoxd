@@ -16,6 +16,7 @@ var app = express();
 
 var mainRouter = require("./src/routes/main");
 var postsRouter = require("./src/routes/posts")
+var profileRouter = require("./src/routes/profile")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", mainRouter);
 app.use("/posts", postsRouter);
+app.use("/profile", profileRouter)
 
 app.listen(PORTA_APP, function () {
     console.log(`            

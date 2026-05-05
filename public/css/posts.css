@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   padding-top: 10px;
 }
 
@@ -10,6 +10,7 @@
   display: flex;
   border-style: solid;
   border: 5px solid black;
+  border-bottom: 9px solid black;
   border-radius: 25px;
   width: 600px;
   flex-direction: column;
@@ -18,32 +19,32 @@
 }
 
 .post-username {
-    padding-bottom: 10px;
-    font-size: medium;
-    
+  padding-bottom: 10px;
+  font-size: medium;
 }
 
 .post-titulo {
-    font-size: 2ch;
-    font-weight: bolder;
+  font-size: 2ch;
+  font-weight: bolder;
+  padding-bottom: 2px;
 }
 
 .post-imagem {
-    height: 100px;
-    width: 100px;
-    border-radius: 5px;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
 }
 
 .post-texto {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .post-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 7px;
-    padding-bottom: 10px;
-    margin-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+  padding-bottom: 10px;
+  margin-right: 20px;
 }
 
 .stars-container {
@@ -52,7 +53,7 @@
 }
 
 .color-star {
-  color: black; 
+  color: black;
 }
 
 .stars-nota {
@@ -60,3 +61,37 @@
   height: 20px;
   margin-right: -5px;
 }
+
+.btn-curtida-placeholder {
+  cursor: pointer !important;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  border: none;
+}
+
+.btn-comentario-placeholder {
+  height: 13px;
+  width: 20px;
+  transform: translateY(-1.5px);
+  cursor: pointer !important;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  border: none;
+}
+
+.numero-likes,
+.numero-comentarios {
+  font-size: small;
+  font-weight: bold;
+  padding-top: 1px;
+  margin-right: -3px;
+  margin-left: 7px;
+}
+
+button:active {
+  transform: scaleY(.7) scaleX(.7);
+}
+
+

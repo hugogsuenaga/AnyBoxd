@@ -3,17 +3,37 @@ function validarSessao() {
   var email = sessionStorage.EMAIL_USUARIO;
   var nome = sessionStorage.NOME_USUARIO;
 
-  var b_usuario = document.getElementById("b_usuario");
-
-  if (email != null && nome != null) {
-    b_usuario.innerHTML = nome;
+  if (email == null && nome == null) {
+  if (window.location.pathname != '/login' && 
+      window.location.pathname != '/singup' &&
+      window.location.pathname != '/'
+  ) {
+        window.location = "/login";
+    }
+    return false;
   } else {
-    window.location = "../login.html";
+    return true;
+  }
+}
+
+function headerSessao() {
+  let val = validarSessao();
+  if (val) {
+    fetch("/view/includes/header_logged.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  } else {
+    fetch("/view/includes/header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
   }
 }
 
 function limparSessao() {
   sessionStorage.clear();
-  window.location = "../login.html";
+  window.location = "/login";
 }
-

@@ -7,7 +7,8 @@
 
     <title>AnyBoxd</title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="/js/sessao.js"></script>
+    <script src="/js/estrelas.js"></script>
 
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/stars.css" />
@@ -50,21 +51,7 @@
   </body>
 </html>
 <script>
-  fetch("/view/includes/header.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-    
-  fetch("/view/includes/starL.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("starL-placeholder").innerHTML = data;
-    });
-
-  fetch("/view/includes/starR.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("starR-placeholder").innerHTML = data;
-    });
+  window.onload = headerSessao()
+  window.onload = estrelas()
+  
 </script>

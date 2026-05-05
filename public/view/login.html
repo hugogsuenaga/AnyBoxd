@@ -8,6 +8,8 @@
     <title>Login</title>
 
     <script src="./js/sessao.js"></script>
+    <script src="/js/estrelas.js"></script>
+    <script src="/js/login.js"></script>
 
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/auth.css" />
@@ -41,73 +43,6 @@
   </body>
 </html>
 <script>
-  fetch("/view/includes/header.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-
-  fetch("/view/includes/starL.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("starL-placeholder").innerHTML = data;
-    });
-
-  fetch("/view/includes/starR.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("starR-placeholder").innerHTML = data;
-    });
-
-  function login() {
-    var email = ipt_email.value;
-    var senha = ipt_senha.value;
-
-    if (email == "" || senha == "") {
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-      return false;
-    }
-    console.log("FORM LOGIN: ", email);
-    console.log("FORM SENHA: ", senha);
-
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        senha: senha,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
-
-        if (resposta.ok) {
-          console.log(resposta);
-
-          resposta.json().then((json) => {
-            console.log(json);
-            console.log(JSON.stringify(json));
-            sessionStorage.ID_USUARIO = json.id;
-            sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.SENHA_USUARIO = json.senha;
-          });
-          window.location.href = "/view/posts/orderByTime.html";
-        } else {
-          console.log("Houve um erro ao tentar realizar o login!");
-
-          resposta.text().then((texto) => {
-            console.error(texto);
-          });
-        }
-      })
-      .catch(function (erro) {
-        console.log(erro);
-      });
-
-    return false;
-  }
+  window.onload = headerSessao()
+  window.onload = estrelas()
 </script>
