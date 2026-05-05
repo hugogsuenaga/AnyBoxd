@@ -7,7 +7,6 @@ router.get("/recentes", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/recentes.html"))
 })
 
-
 router.get("/curtidos", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/maisCurtidos.html"))
 })

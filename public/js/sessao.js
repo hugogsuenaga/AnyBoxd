@@ -4,11 +4,12 @@ function validarSessao() {
   var nome = sessionStorage.NOME_USUARIO;
 
   if (email == null && nome == null) {
-  if (window.location.pathname != '/login' && 
-      window.location.pathname != '/singup' &&
-      window.location.pathname != '/'
-  ) {
-        window.location = "/login";
+    if (
+      window.location.pathname != "/login" &&
+      window.location.pathname != "/singup" &&
+      window.location.pathname != "/"
+    ) {
+      window.location = "/login";
     }
     return false;
   } else {
