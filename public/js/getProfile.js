@@ -1,9 +1,9 @@
-function obterPostsDoServidor(placeholder) {
+function getProfilePosts() {
   let dados = {
     idUsuario: sessionStorage.ID_USUARIO,
   };
 
-  fetch(`/posts/${placeholder}?idUsuario=${dados.idUsuario}`, {
+  fetch(`/profile/posts?dados=${dados.idUsuario}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

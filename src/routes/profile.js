@@ -1,10 +1,13 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
+var profileController = require("../controllers/profile");
 
-router.get("/profile", function (req, res) {
+router.get("/", function (req, res) {
 res.sendFile(path.join(__dirname, "../../public/view/profile.html"));
 });
+
+router.get("/posts", profileController.getProfilePosts)
 
 module.exports = router;
 

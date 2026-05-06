@@ -35,8 +35,8 @@ exports.orderByLikes = (req, res, next) => {
 
 exports.curtir = (req, res) => {
   let dados = req.query.dados;
-  let idPost = dados.split("")[0];
-  let idUsuarioLogado = dados.split("")[1];
+  let idPost = dados.split(":")[0];
+  let idUsuarioLogado = dados.split(":")[1];
 
   curtidaModel
     .inserirCurtida(idPost, idUsuarioLogado)
@@ -54,8 +54,10 @@ exports.curtir = (req, res) => {
 
 exports.descurtir = (req, res) => {
   let dados = req.query.dados;
-  let idPost = dados.split("")[0];
-  let idUsuarioLogado = dados.split("")[1];
+  console.log(dados)
+  let idPost = dados.split(":")[0];
+  let idUsuarioLogado = dados.split(":")[1];
+  console.log(idPost + " xvxvxv" + idUsuarioLogado);
 
   curtidaModel
     .removerCurtida(idPost, idUsuarioLogado)

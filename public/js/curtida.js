@@ -6,9 +6,10 @@ function curtir(button) {
 
   let idUsuarioLoggado = sessionStorage.ID_USUARIO;
   let idPost = button.dataset.idPost;
-  let linkCurtir = `/posts/curtir?dados=${idPost + idUsuarioLoggado}`;
-  let linkDescurtir = `/posts/descurtir?dados=${idPost + idUsuarioLoggado}`;
-
+  console.log(idUsuarioLoggado)
+  let linkCurtir = `/posts/curtir?dados=${idPost + ':' + idUsuarioLoggado}`;
+  let linkDescurtir = `/posts/descurtir?dados=${idPost + ':' + idUsuarioLoggado}`;
+console.log(linkCurtir)
   if (semCurtida || semNada) {
     fetch(linkCurtir, {
       method: "POST",

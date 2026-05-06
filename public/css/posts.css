@@ -3,9 +3,46 @@
   align-items: center;
   flex-direction: column;
   gap: 12px;
-  padding-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: solid black 5px;
+  border-bottom: solid black 15px;
+  border-radius: 40px;
+  width: 660px;
+  background-color: rgb(202, 202, 202);
+  overflow-y: auto;
+  height: 575px;
+  padding-right: 5px; 
+  padding-left: 12px;
 }
 
+#posts-placeholder::-webkit-scrollbar {
+  width: 16px; 
+}
+
+#posts-placeholder::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 3. O pegador (thumb) */
+#posts-placeholder::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 20px;
+
+  border: 4px solid rgb(202, 202, 202);
+}
+
+#posts-placeholder::-webkit-scrollbar-button:single-button {
+  background-color: transparent;
+  display: block;
+  border-style: none;
+  height: 30px; 
+  width: 40px;
+}
+
+#posts-placeholder::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
 .post-card {
   display: flex;
   border-style: solid;
@@ -91,7 +128,5 @@
 }
 
 button:active {
-  transform: scaleY(.7) scaleX(.7);
+  transform: scaleY(0.7) scaleX(0.7);
 }
-
-

@@ -36,7 +36,7 @@ ORDER BY p.dtPost DESC;
     (SELECT COUNT(*) FROM comentario WHERE fkPostPai = p.idPost AND fkComentarioPai IS NOT NULL) AS total_comentarios_comentario
 FROM post p
 JOIN usuario u ON p.fkUserPost = u.idUsuario 
-ORDER BY p.dtPost DESC;
+ORDER BY total_likes DESC;
                       `;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

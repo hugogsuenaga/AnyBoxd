@@ -18,17 +18,23 @@ create table post (
     dtPost datetime default current_timestamp,
     fkUserPost int, 
     constraint fk_user_post
-		foreign key (fkUserPost) references usuario(idUsuario)
+		foreign key (fkUserPost) 
+			references usuario(idUsuario)
     );
     
 create table curtida (
+	idCurtida int,
 	fkPost int,
 	constraint fk_curtida_post
-		foreign key (fkPost) references post(idPost) ON DELETE CASCADE,
+		foreign key (fkPost) 
+			references post(idPost) ON DELETE CASCADE,
 	fkUsuario int,
 	constraint fk_curtida_usuario
-		foreign key (fkUsuario) references usuario(idUsuario) ON DELETE CASCADE,
-	PRIMARY KEY (fkPost, fkUsuario)
+		foreign key (fkUsuario) 
+			references usuario(idUsuario) ON DELETE CASCADE,
+	constraint pk_curtida
+		PRIMARY KEY (idCurtida, fkPost, fkUsuario),
+	dtCurtida datetime default current_timestamp
 	);
     
 create table comentario (
@@ -36,13 +42,16 @@ create table comentario (
     texto varchar(255),
     fkUserComentario int,
     constraint fk_user_comentario 
-		foreign key (fkUserComentario) references usuario(idUsuario),
+		foreign key (fkUserComentario) 
+			references usuario(idUsuario),
     fkPostPai int,
 	constraint fk_post_pai
-			foreign key (fkPostPai) references post(idPost) ON DELETE CASCADE,
+		foreign key (fkPostPai) 
+            references post(idPost) ON DELETE CASCADE,
 	fkComentarioPai int,
     constraint fk_comentario_pai
-		foreign key (fkComentarioPai) references comentario(idComentario) ON DELETE CASCADE
+		foreign key (fkComentarioPai) 
+			references comentario(idComentario) ON DELETE CASCADE
 	);
     
-select idPost, titulo, imagem, texto, nota from post order by dtPost;
+    

@@ -32,17 +32,7 @@
 <script>
   window.onload = headerSessao()
   window.onload = estrelas()
-
-  window.onload = () => {
-        fetch("/posts/orderByLikes")
-            .then(res => res.json())
-            .then(posts => {
-                exibirPosts(posts);
-            })
-            .catch(err => console.error("Erro ao buscar posts:", err));
-    };
-
-  window.onload = obterPostsDoServidor('Likes');
+  window.onload = obterPostsDoServidor('orderByLikes');
         
 
 </script>

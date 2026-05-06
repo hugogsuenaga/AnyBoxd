@@ -46,7 +46,7 @@ let exibirPosts = (posts) => {
     let notaEstrelas = gerarEstrelas(nota);
     let imagemTag = "";
     let foiCurtido = post.usuario_curtiu;
-    imagem != "" && (imagemTag = `<img src="${imagem}" />`);
+    (imagem != "" && imagem != null) && (imagemTag = `<img src="${imagem}" />`);
     foiCurtido == 1 ? (foiCurtido = "fill") : (foiCurtido = "none");
 
     res += `<div class="post-card">

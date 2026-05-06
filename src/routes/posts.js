@@ -12,10 +12,6 @@ router.get("/curtidos", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/maisCurtidos.html"))
 })
 
-router.get("/curtir", (req, res) => {
-    res.sendFile(path.join(__dirname, "../../public/view/posts/maisCurtidos.html"))
-})
-
 router.get("/orderByTime", postsController.orderByTime);
 
 router.get("/orderByLikes", postsController.orderByLikes);
