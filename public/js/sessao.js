@@ -6,7 +6,7 @@ function validarSessao() {
   if (email == null && nome == null) {
     if (
       window.location.pathname != "/login" &&
-      window.location.pathname != "/singup" &&
+      window.location.pathname != "/signup" &&
       window.location.pathname != "/"
     ) {
       window.location = "/login";

@@ -47,7 +47,7 @@ let exibirPosts = (posts) => {
     let imagemTag = "";
     let foiCurtido = post.usuario_curtiu;
     (imagem != "" && imagem != null) && (imagemTag = `<img src="${imagem}" />`);
-    foiCurtido == 1 ? (foiCurtido = "fill") : (foiCurtido = "none");
+    foiCurtido == 1 ? (foiCurtido = "black") : (foiCurtido = "none");
 
     res += `<div class="post-card">
               <div class="post-header">
@@ -60,7 +60,6 @@ let exibirPosts = (posts) => {
                 ${texto}
                 </p>
               </div>
-
               <div class="post-footer">
                 <span class="post-nota">${notaEstrelas}</span>
                 <div class="post-footer">

@@ -3,32 +3,32 @@ use Anyboxd;
 
 create table usuario (
 	idUsuario int primary key auto_increment,
-    nome varchar(60),
-    username varchar(45) unique,
-    email varchar(60) unique,
-    senha varchar(255)
+    nome varchar(60) not null,
+    username varchar(45) unique not null,
+    email varchar(60) unique not null,
+    senha varchar(255) not null
     );
     
 create table post (
 	idPost int primary key auto_increment,
-    titulo varchar(45),
+    titulo varchar(45) not null,
     imagem varchar(300),
     texto varchar(255),
-    nota int,
+    nota int not null,
     dtPost datetime default current_timestamp,
-    fkUserPost int, 
+    fkUserPost int not null, 
     constraint fk_user_post
 		foreign key (fkUserPost) 
-			references usuario(idUsuario)
+			references usuario(idUsuario) ON DELETE CASCADE
     );
     
 create table curtida (
 	idCurtida int,
-	fkPost int,
+	fkPost int not null,
 	constraint fk_curtida_post
 		foreign key (fkPost) 
 			references post(idPost) ON DELETE CASCADE,
-	fkUsuario int,
+	fkUsuario int not null,
 	constraint fk_curtida_usuario
 		foreign key (fkUsuario) 
 			references usuario(idUsuario) ON DELETE CASCADE,
@@ -39,8 +39,8 @@ create table curtida (
     
 create table comentario (
 	idComentario int primary key auto_increment,
-    texto varchar(255),
-    fkUserComentario int,
+    texto varchar(255) not null,
+    fkUserComentario int not null,
     constraint fk_user_comentario 
 		foreign key (fkUserComentario) 
 			references usuario(idUsuario),

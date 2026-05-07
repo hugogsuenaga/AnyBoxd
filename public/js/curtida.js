@@ -6,10 +6,8 @@ function curtir(button) {
 
   let idUsuarioLoggado = sessionStorage.ID_USUARIO;
   let idPost = button.dataset.idPost;
-  console.log(idUsuarioLoggado)
   let linkCurtir = `/posts/curtir?dados=${idPost + ':' + idUsuarioLoggado}`;
   let linkDescurtir = `/posts/descurtir?dados=${idPost + ':' + idUsuarioLoggado}`;
-console.log(linkCurtir)
   if (semCurtida || semNada) {
     fetch(linkCurtir, {
       method: "POST",
@@ -20,10 +18,8 @@ console.log(linkCurtir)
       console.log(err);
     });
     svg.setAttribute("fill", "black");
-
     contador.innerHTML++;
   } else {
-    svg.setAttribute("fill", "none");
     fetch(linkDescurtir, {
       method: "POST",
       headers: {
@@ -32,6 +28,7 @@ console.log(linkCurtir)
     }).catch((err) => {
       console.log(err);
     });
+    svg.setAttribute("fill", "none");
     contador.innerHTML--;
   }
 }

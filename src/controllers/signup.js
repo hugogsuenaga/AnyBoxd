@@ -49,7 +49,6 @@ function verificarNome(nome) {
   if (!temCaracteresEspeciais && nomeCompleto) {
     return true;
   } else {
-    console.log(1);
     return false;
   }
 }
@@ -62,7 +61,6 @@ function verificarUsername(username) {
   if (tamanhoMinimo && palavraUnica) {
     return true;
   } else {
-    console.log(2);
     return false;
   }
 }
@@ -102,7 +100,6 @@ if (!email) return false;
   ) {
     return true;
   } else {
-    console.log(3);
     return false;
   }
 }
@@ -132,12 +129,11 @@ function verificarSenha(senha) {
   ) {
     return true;
   } else {
-    console.log(4);
     return false;
   }
 }
 
-exports.postSingup = async (req, res) => {
+exports.postSignup = async (req, res) => {
   const { nome, username, email, senha } = req.body;
   console.log(req.body);
   let verNome = verificarNome(nome);

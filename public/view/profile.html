@@ -11,11 +11,12 @@
     <script src="/js/posts.js"></script>
     <script src="/js/curtida.js"></script>
     <script src="/js/estrelas.js"></script>
-    <script src="/js/getProfile.js"></script>
+    <script src="/js/obterProfile.js"></script>
 
     <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/stars.css" />
     <link rel="stylesheet" href="/css/posts.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+
   </head>
 
   <body>
@@ -23,15 +24,15 @@
     <div id="header-placeholder"></div>
         </div>
     <main>
-      <div id="starL-placeholder"></div>
-      <div id="posts-placeholder"></div>
-      <div id="starR-placeholder"></div>
+        <div id="dados-placeholder"></div>
+        <div id="posts-placeholder"></div>
+        <div id="starR-placeholder"></div>
     </main>
   </body>
 </html>
 <script>
     window.onload = headerSessao()
     window.onload = estrelas()
-    window.onload = getProfilePosts()
+    window.onload = getProfile()
 </script>
 

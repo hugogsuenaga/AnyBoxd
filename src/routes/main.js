@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-const { postSingup } = require("../controllers/singup");
+const { postSignup } = require("../controllers/signup");
 const { postLogin } = require("../controllers/login");
 
 router.get("/", function (req, res) {
@@ -13,9 +13,9 @@ router.get("/login", function (req, res) {
 });
 router.post("/login", postLogin);
 
-router.get("/singup", function (req, res) {
-    res.sendFile(path.join(__dirname, "../../public/view/singup.html"));
+router.get("/signup", function (req, res) {
+    res.sendFile(path.join(__dirname, "../../public/view/signup.html"));
 });
-router.post("/singup", postSingup)
+router.post("/signup", postSignup)
 
 module.exports = router;

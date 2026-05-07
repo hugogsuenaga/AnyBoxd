@@ -17,7 +17,7 @@ FROM post p
 JOIN usuario u ON p.fkUserPost = u.idUsuario 
 ORDER BY p.dtPost DESC;
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log("Executando a instrução SQL: \ntime\n");
     return database.executar(instrucaoSql);
   }
   
@@ -38,7 +38,7 @@ FROM post p
 JOIN usuario u ON p.fkUserPost = u.idUsuario 
 ORDER BY total_likes DESC;
                       `;
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  console.log("Executando a instrução SQL: \nlikes\n");
   return database.executar(instrucaoSql);
 }
 

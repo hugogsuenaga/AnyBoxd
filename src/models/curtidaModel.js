@@ -6,7 +6,7 @@ function inserirCurtida(idPost, idUsuarioLogado) {
     INSERT INTO curtida VALUES
         (${idPost}, ${idUsuarioLogado});
     `;
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  console.log("Executando a instrução SQL: \ninserirCurtida\n");
   return database.executar(instrucaoSql);
 }
 
@@ -16,7 +16,7 @@ function removerCurtida(idPost, idUsuarioLogado) {
   var instrucaoSql = `
     DELETE FROM curtida WHERE fkPost = ${idPost} AND fkUsuario = ${idUsuarioLogado};;
     `;
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  console.log("Executando a instrução SQL: \nremoverCurtida\n");
   return database.executar(instrucaoSql);
 }
 

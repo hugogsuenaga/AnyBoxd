@@ -1,10 +1,10 @@
 var database = require("../database/config");
 
-function getProfileData(idUsuario) {
+function getProfileDash(idUsuario) {
   var instrucaoSql = `
         SELECT idUsuario, email, username, nome, senha FROM usuario;
     `;
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  console.log("Executando a instrução SQL: \ngetProfileDash\n");
   return database.executar(instrucaoSql);
 }
 
@@ -26,12 +26,12 @@ function getProfilePosts(idUsuario) {
     WHERE u.idUsuario = ${idUsuario}
     ORDER BY p.dtPost DESC;
     `;
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  console.log("Executando a instrução SQL: \ngetProfilePosts\n");
   return database.executar(instrucaoSql);
 }
 
 module.exports = {
-  getProfileData,
+  getProfileDash,
   getProfilePosts,
 };
 
