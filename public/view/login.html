@@ -24,18 +24,21 @@
       <div id="starL-placeholder"></div>
 
       <div class="div_auth">
-        <p>Login</p>
-        <input
+        <div class="div_auth_content">
+          <p>Login</p>
+          <input
           type="text"
           id="ipt_email"
           placeholder="Insira seu email"
-        /><br />
-        <input type="password" id="ipt_senha" placeholder="Insira sua senha" />
-        <button onclick="login()">Login</button>
-        <h3>
-          ainda nao tem uma conta? faça seu <a href="/singup">cadastro</a>
-        </h3>
-        <br />
+          /><br />
+          <input type="password" id="ipt_senha" placeholder="Insira sua senha" />
+          <button onclick="login()">Login</button>
+          <h3>
+            ainda nao tem uma conta? faça seu <a href="/singup">cadastro</a>
+          </h3>
+          <div id="div_alerta" style="color: red; font-weight: bold"></div>
+          <br />
+        </div>
       </div>
 
       <div id="starR-placeholder"></div>

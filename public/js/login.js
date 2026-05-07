@@ -3,8 +3,8 @@ function login() {
   var senha = ipt_senha.value;
 
   if (email == "" || senha == "") {
-    mensagem_erro.innerHTML =
-      "(Mensagem de erro para todos os campos em branco)";
+    div_alerta.innerHTML =
+      "Preencha todos os campos!";
     return false;
   }
   console.log("FORM LOGIN: ", email);
@@ -33,11 +33,12 @@ function login() {
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.SENHA_USUARIO = json.senha;
+          console.log(json)
         });
         window.location = "/posts/recentes";
       } else {
         console.log("Houve um erro ao tentar realizar o login!");
-
+        div_alerta.innerHTML = `Email e/ou senha invalidos!`
         resposta.text().then((texto) => {
           console.error(texto);
         });

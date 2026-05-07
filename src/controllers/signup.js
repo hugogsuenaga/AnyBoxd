@@ -37,7 +37,7 @@ let charNum = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function verificarNome(nome) {
   if (!nome) return false;
-  let partes = nome.trim().split(" ")
+  let partes = nome.trim().split(" ");
   let nomeCompleto = partes.length > 1 && partes[1].length > 0;
   let temCaracteresEspeciais = false;
 
@@ -66,14 +66,14 @@ function verificarUsername(username) {
 }
 
 function verificarEmail(email) {
-if (!email) return false;
+  if (!email) return false;
 
   let naoTemEspaco = !email.includes(" ");
   let tamanhoMinimo = email.length > 5;
   let temArroba = email.includes("@");
-  
+
   let partesArroba = email.split("@");
-  let temSoUmArroba = partesArroba.length === 2; 
+  let temSoUmArroba = partesArroba.length === 2;
 
   let localPart = partesArroba[0] || "";
   let dominioPart = partesArroba[1] || "";
@@ -82,11 +82,12 @@ if (!email) return false;
 
   let ultimaPosicaoPonto = email.lastIndexOf(".");
   let posicaoArroba = email.indexOf("@");
-  
+
   let temPontoDpsDoArroba = ultimaPosicaoPonto > posicaoArroba + 1;
-  
+
   let partesPonto = email.split(".");
-  let temTLD = partesPonto.length > 1 && partesPonto[partesPonto.length - 1].length > 0;
+  let temTLD =
+    partesPonto.length > 1 && partesPonto[partesPonto.length - 1].length > 0;
 
   if (
     temArroba &&
@@ -103,7 +104,6 @@ if (!email) return false;
     return false;
   }
 }
-
 
 function verificarSenha(senha) {
   if (!senha) return false;
@@ -156,12 +156,15 @@ exports.postSignup = async (req, res) => {
       });
   } else {
     let msg = "";
-    if (!verNome) msg += `O nome deve conter sobrenome e apenas letras.<br>`;
-    if (!verUsername)
+    if (!verNome) {
+      msg += `O nome deve conter sobrenome e apenas letras.<br>`;
+    } else if (!verUsername) {
       msg += `Username deve ter mais de 5 caracteres e sem espaços.<br>`;
-    if (!verEmail) msg += `E-mail inválido.<br>`;
-    if (!verSenha)
+    } else if (!verEmail) {
+      msg += `E-mail inválido.<br>`;
+    } else if (!verSenha) {
       msg += `A senha deve ter 8+ caracteres, maiúsculas, minúsculas e símbolos.<br>`;
+    }
     return res.status(400).json({ mensagem: msg });
     console.log("deu algum problema");
   }
