@@ -57,8 +57,6 @@ exports.descurtir = (req, res) => {
   console.log(dados)
   let idPost = dados.split(":")[0];
   let idUsuarioLogado = dados.split(":")[1];
-  console.log(idPost + " xvxvxv" + idUsuarioLogado);
-
   curtidaModel
     .removerCurtida(idPost, idUsuarioLogado)
     .then(function (resultado) {
@@ -72,3 +70,20 @@ exports.descurtir = (req, res) => {
       res.status(500).json(erro.sqlMessage);
     });
 };
+
+exports.insertPost = (req, res) => {
+  let dados = req.query.dados;
+  let idUsuario = dados
+  postModel
+    .insertPost(idUsuario) 
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nao foi possivel inserir post");
+      }
+    })
+    .catch (function (erro) {
+      res.status(500).json(erro.sqlMessage)
+    })
+}

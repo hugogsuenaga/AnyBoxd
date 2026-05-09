@@ -8,8 +8,8 @@ res.sendFile(path.join(__dirname, "../../public/view/profile.html"));
 });
 
 router.get("/posts", profileController.getProfilePosts)
-
 router.get('/dash', profileController.getProfileDash)
+router.get('/graph', profileController.getProfileGraph)
 
 module.exports = router;
 

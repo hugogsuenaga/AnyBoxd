@@ -30,7 +30,9 @@
   </body>
 </html>
 <script>
-  window.onload = headerSessao()
-  window.onload = estrelas()
-  window.onload = obterPostsDoServidor('orderByTime');
+  window.onload = () => {
+    headerSessao()
+    estrelas()
+    obterPostsDoServidor('orderByTime');
+  }
 </script>

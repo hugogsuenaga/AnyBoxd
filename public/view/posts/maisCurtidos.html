@@ -30,9 +30,10 @@
   </body>
 </html>
 <script>
-  window.onload = headerSessao()
-  window.onload = estrelas()
-  window.onload = obterPostsDoServidor('orderByLikes');
-        
+  window.onload = () => {
+    headerSessao()
+    estrelas()
+    obterPostsDoServidor('orderByLikes');
+  }    
 
 </script>

@@ -25,6 +25,7 @@ create table post (
 create table curtida (
 	idCurtida int,
 	fkPost int not null,
+	dtCurtida datetime default current_timestamp,
 	constraint fk_curtida_post
 		foreign key (fkPost) 
 			references post(idPost) ON DELETE CASCADE,
@@ -33,8 +34,7 @@ create table curtida (
 		foreign key (fkUsuario) 
 			references usuario(idUsuario) ON DELETE CASCADE,
 	constraint pk_curtida
-		PRIMARY KEY (idCurtida, fkPost, fkUsuario),
-	dtCurtida datetime default current_timestamp
+		PRIMARY KEY (idCurtida, fkPost, fkUsuario)
 	);
     
 create table comentario (

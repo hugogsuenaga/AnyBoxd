@@ -43,9 +43,13 @@ let exibirPosts = (posts) => {
     let nota = post.nota;
     let numeroLikes = post.total_likes;
     let numeroComentarios = post.total_comentarios_post;
+    let foiCurtido = post.usuario_curtiu;
+    
     let notaEstrelas = gerarEstrelas(nota);
     let imagemTag = "";
-    let foiCurtido = post.usuario_curtiu;
+    let textoTag = "";
+
+    (texto != "" && texto != null) && (textoTag = `<p class="post-texto">${texto}</p>`);
     (imagem != "" && imagem != null) && (imagemTag = `<img src="${imagem}" />`);
     foiCurtido == 1 ? (foiCurtido = "black") : (foiCurtido = "none");
 
@@ -56,10 +60,8 @@ let exibirPosts = (posts) => {
               </div>
               <div class="post-corpo">
                 ${imagemTag}
-                <p class="post-texto">
-                ${texto}
-                </p>
-              </div>
+                </div>
+                ${textoTag}
               <div class="post-footer">
                 <span class="post-nota">${notaEstrelas}</span>
                 <div class="post-footer">

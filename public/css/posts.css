@@ -9,7 +9,7 @@
   border-bottom: solid black 15px;
   border-radius: 40px;
   width: 660px;
-  background-color: rgb(202, 202, 202);
+  background-color: rgb(170, 170, 170);
   overflow-y: auto;
   height: 575px;
   padding-right: 5px; 
@@ -24,7 +24,6 @@
   background: transparent;
 }
 
-/* 3. O pegador (thumb) */
 #posts-placeholder::-webkit-scrollbar-thumb {
   background-color: #000;
   border-radius: 20px;
@@ -53,6 +52,7 @@
   flex-direction: column;
   padding-top: 20px;
   padding-left: 20px;
+  background-color: rgb(202, 202, 202);
 }
 
 .post-username {
