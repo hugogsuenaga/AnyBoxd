@@ -9,7 +9,7 @@ let exibirDash = (dados) => {
   let totalPosts = dash.total_posts
   let mediaNotas = dash.media_notas
   mediaNotas == null && (mediaNotas = "Sem notas")
-  let totalCurtidasRecebidas = dash.total_comentarios_recebidos
+  let totalCurtidasRecebidas = dash.total_curtidas_recebidas
   let totalComentariosRecebidos = dash.total_comentarios_recebidos
   
   
@@ -18,16 +18,16 @@ let exibirDash = (dados) => {
     <p class="p_email">${email}</p>
             <div class="kpi_container">
             <div class="kpi">
-              Total de Posts:<br> ${totalPosts}
+              <p class="kpi_text">Total de Posts:</p> <span class="kpi_value">${totalPosts}</span>
               </div>
               <div class="kpi">
-              Media de Notas: ${mediaNotas}<br>
+              <p class="kpi_text">Media de Notas:</p>  <span class="kpi_value">${mediaNotas}</span>
               </div>
               <div class="kpi">
-              Total de curtidas recebidas: ${totalCurtidasRecebidas}<br>
+              <p class="kpi_text">Total de curtidas recebidas:</p> <span class="kpi_value">${totalCurtidasRecebidas}</span>
               </div>
               <div class="kpi">
-              Total de comentarios: ${totalComentariosRecebidos}<br>
+              <p class="kpi_text">Total de comentarios recebidos:</p> <span class="kpi_value"> ${totalComentariosRecebidos}</span>
               </div>
             </div>  
             </div>  
