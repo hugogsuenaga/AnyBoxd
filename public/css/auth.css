@@ -55,6 +55,7 @@ a {
 }
 
 input {
+  font-weight: bolder;
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;

@@ -67,13 +67,17 @@
 }
 
 .post-imagem {
-  height: 100px;
-  width: 100px;
-  border-radius: 5px;
+  max-height: 400px;
+  max-width: 550px;
+  border-radius: 15px;
 }
 
 .post-texto {
   padding-bottom: 10px;
+  max-width: 550px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .post-footer {

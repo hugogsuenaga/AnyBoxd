@@ -72,12 +72,11 @@ exports.descurtir = (req, res) => {
 };
 
 exports.insertPost = (req, res) => {
-  let dados = req.query.dados;
-  let idUsuario = dados
+ const { idUsuario, titulo, imagem, texto, nota } = req.body;
   postModel
-    .insertPost(idUsuario) 
+    .insertPost(idUsuario, titulo, imagem, texto, nota) 
     .then(function (resultado) {
-      if (resultado.length > 0) {
+    if (resultado.affectedRows > 0) {
         res.status(200).json(resultado);
       } else {
         res.status(204).send("Nao foi possivel inserir post");

@@ -50,7 +50,7 @@ let exibirPosts = (posts) => {
     let textoTag = "";
 
     (texto != "" && texto != null) && (textoTag = `<p class="post-texto">${texto}</p>`);
-    (imagem != "" && imagem != null) && (imagemTag = `<img src="${imagem}" />`);
+    (imagem != "" && imagem != null) && (imagemTag = `<img class="post-imagem" src="${imagem}" />`);
     foiCurtido == 1 ? (foiCurtido = "black") : (foiCurtido = "none");
 
     res += `<div class="post-card">
@@ -81,7 +81,8 @@ let exibirPosts = (posts) => {
                 </button>
                 </div>
               </div>
-            </div>`;
+              </div>
+              `;
   }
   placeholder.innerHTML = res;
 };

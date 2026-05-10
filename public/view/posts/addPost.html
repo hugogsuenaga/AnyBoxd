@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AnyBoxd</title>
+
+    <script src="/js/sessao.js"></script>
+    <script src="/js/estrelas.js"></script>
+    <script src="/js/addPost.js"></script>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/stars.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+  </head>
+
+  <body>
+    <div class="backdrop"></div>
+    <div id="header-placeholder"></div>
+        </div>
+    <main>
+      <div id="starL-placeholder"></div>
+      <div id="post-form">
+        <h1>Criar Review</h1>
+        <input type="text" id="ipt_titulo" placeholder="Titulo da Review">
+        <input type="text" id="ipt_imagem" placeholder="Insira uma imagem(link)">
+        <textarea class="ipt_comentario" id="ipt_texto" maxlength="620" type="text" placeholder="Comente sua Review"></textarea>
+        <div class="rating-container">
+          <div class="rating-stars">
+            
+            <input type="radio" id="st10" name="nota" value="10"><label for="st10" class="full"></label>
+            <input type="radio" id="st9" name="nota" value="9"><label for="st9" class="half"></label>
+
+            <input type="radio" id="st8" name="nota" value="8"><label for="st8" class="full"></label>
+            <input type="radio" id="st7" name="nota" value="7"><label for="st7" class="half"></label>
+
+            <input type="radio" id="st6" name="nota" value="6"><label for="st6" class="full"></label>
+            <input type="radio" id="st5" name="nota" value="5"><label for="st5" class="half"></label>
+
+            <input type="radio" id="st4" name="nota" value="4"><label for="st4" class="full"></label>
+            <input type="radio" id="st3" name="nota" value="3"><label for="st3" class="half"></label>
+
+            <input type="radio" id="st2" name="nota" value="2"><label for="st2" class="full"></label>
+            <input type="radio" id="st1" name="nota" value="1"><label for="st1" class="half"></label>
+          </div>
+        </div>
+        <div id="div_alerta"></div>
+      </div>
+      <button class="btn-add-post" onclick="addPost()">Post Review</button>
+      <div id="starR-placeholder"></div>
+    </main>
+  </body>
+</html>
+<script>
+  window.onload = () => {
+    headerSessao()
+    estrelas()
+  }
+
+</script>
+
+

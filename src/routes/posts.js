@@ -7,7 +7,8 @@ const curtidaModel = require("../models/curtidaModel");
 router.get("/addPost", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/addPost.html"))
 })
-router.get("/insertPost", postsController.insertPost);
+router.post("/insertPost", postsController.insertPost);
+
 
 router.get("/recentes", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/recentes.html"))
@@ -18,6 +19,7 @@ router.get("/curtidos", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/maisCurtidos.html"))
 })
 router.get("/orderByLikes", postsController.orderByLikes);
+
 
 router.post("/curtir", postsController.curtir)
 

@@ -42,7 +42,17 @@ ORDER BY total_likes DESC;
   return database.executar(instrucaoSql);
 }
 
+  function insertPost(idUsuario, titulo, imagem, texto, nota) {
+  var instrucaoSql = `
+   INSERT INTO post (titulo, imagem, texto, nota, fkUserPost) VALUES
+    ('${titulo}', '${imagem}', '${texto}', ${nota}, ${idUsuario}); 
+                      `;
+  console.log("Executando a instrução SQL: \insertPost\n");
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   time,
   likes,
+  insertPost,
 };
