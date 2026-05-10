@@ -56,6 +56,7 @@ function getProfile() {
       if (resposta.ok) {
         resposta.json().then(function (dados) {
           console.log("Dados recebidos: profile/dados");
+          console.log(dados)
           for (let i = 0; i < dados.length; i++) {
             let dado = dados[i].total_likes
             if (dados[i] && dados[i].total_likes !== undefined) {

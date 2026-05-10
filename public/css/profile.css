@@ -6,31 +6,42 @@ margin-left: 10px;
 }
 
 #graph-placeholder {
-  border: solid 5px black;
+  border: solid 7px black;
   border-radius: 40px;
   border-bottom: solid 15px black;
   height: 575px;
   width: 320px;
-  padding: 20px;
-  background-color: rgb(170, 170, 170);
+  padding: 25px;
+  padding-top: 30;
+  padding-left: 10px;
+  background-color: rgb(210, 210, 210);
+  position: relative;
+  font-weight: bolder;
+
 }
 
 #graph {
-  height: 500px;
-  width: 200px;
+  padding-top: 10px;
+  width: 95% !important;
+  height: 97% !important;
+}
+
+.p_graph {
+  font-size: 1.7ch;
+  padding-left: 15px;
 }
 
 #dados-placeholder {
   padding-top: 25px;
   padding-bottom: 20px;
-  border: solid black 5px;
+  border: solid black 7px;
   border-bottom: solid black 15px;
   border-radius: 40px;
   width: 325px;
   height: 575px;
   padding-right: 10px; 
   padding-left: 25px;
-  background-color: rgb(170, 170, 170);
+  background-color: rgb(210, 210, 210);
 }
 
 .p_username {
@@ -62,7 +73,11 @@ margin-left: 10px;
   border-radius: 20px;
   border-bottom: 10px solid black;
   padding: 10px;
+  font-size: medium;
+  font-weight: bold;
 }
+
+
 
 .star-column {
   position: absolute;

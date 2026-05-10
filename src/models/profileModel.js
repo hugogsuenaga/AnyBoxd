@@ -60,7 +60,7 @@ function getProfileGraph(idUsuario) {
         COUNT(c.fkPost) AS total_likes
         FROM post p
         LEFT JOIN curtida c ON p.idPost = c.fkPost
-        WHERE p.fkUserPost = 1 -- Substitua pelo ID do usuário
+        WHERE p.fkUserPost = ${idUsuario}
         GROUP BY p.idPost, p.dtPost
         ORDER BY p.dtPost DESC
         LIMIT 10;

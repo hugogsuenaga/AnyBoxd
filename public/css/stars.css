@@ -1,6 +1,6 @@
 .star-column {
   position: absolute;
-  top: 70px; 
+  top: 80px; 
   display: flex;
   flex-direction: column;
   gap: 60px; 
@@ -8,17 +8,17 @@
 }
 
 .star-column.left {
-  left: 12%;
+  left: 10%;
 }
 
 .star-column.right {
-  right: 12%; 
+  right: 10%; 
 }
 
 .star-column svg {
   stroke: black;
   stroke-width: 1.5;
-  fill: none;
+  fill: rgb(210, 210, 210);
   animation: floatIndividual 6s ease-in-out infinite;
 }
 
