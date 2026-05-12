@@ -54,6 +54,7 @@ function getComentarios(idUsuarioLogado, idPost) {
     p.fkUserPost,
     u_autor.username AS autor_post,
     c.texto AS texto_comentario,
+    c.dtComentario AS dtComentario,
     u_coment.username AS autor_comentario,
     (SELECT COUNT(*) FROM curtida WHERE fkPost = p.idPost) AS total_likes,
     (SELECT COUNT(*) FROM curtida WHERE fkPost = p.idPost AND fkUsuario = ${idUsuarioLogado}) AS usuario_curtiu
@@ -62,7 +63,7 @@ JOIN usuario u_autor ON p.fkUserPost = u_autor.idUsuario
 LEFT JOIN comentario c ON p.idPost = c.fkPostPai
 LEFT JOIN usuario u_coment ON c.fkUserComentario = u_coment.idUsuario
 WHERE p.idPost = ${idPost}
-ORDER BY c.idComentario ASC;
+ORDER BY c.dtComentario DESC;
                       `;
   console.log("Executando a instrução SQL: \ngetComentario\n");
   return database.executar(instrucaoSql);

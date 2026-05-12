@@ -135,7 +135,6 @@ function verificarSenha(senha) {
 
 exports.postSignup = async (req, res) => {
   const { nome, username, email, senha } = req.body;
-  console.log(req.body);
   let verNome = verificarNome(nome);
   let verEmail = verificarEmail(email);
   let verUsername = verificarUsername(username);

@@ -67,6 +67,7 @@
 }
 
 .post-imagem {
+  border: solid 3px black;
   max-height: 400px;
   max-width: 550px;
   border-radius: 15px;
@@ -74,6 +75,7 @@
 }
 
 .post-texto {
+  padding-top: 10px;
   padding-bottom: 10px;
   max-width: 550px;
   word-wrap: break-word;

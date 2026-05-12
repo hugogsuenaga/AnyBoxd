@@ -14,7 +14,6 @@ exports.postLogin = (req, res) => {
       console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); 
 
       if (resultadoAutenticar.length == 1) {
-        console.log(resultadoAutenticar);
         res.json({
           id: resultadoAutenticar[0].idUsuario,
           nome: resultadoAutenticar[0].nome,

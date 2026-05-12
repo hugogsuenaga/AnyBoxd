@@ -39,6 +39,7 @@ create table curtida (
     
 create table comentario (
 	idComentario int primary key auto_increment,
+	dtComentario datetime default current_timestamp,
     texto varchar(255) not null,
     fkUserComentario int not null,
     constraint fk_user_comentario 

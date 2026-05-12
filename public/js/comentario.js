@@ -64,7 +64,6 @@ let exibirPosts = (posts) => {
   let post = posts[0];
   let idPost = post.idPost;
   let username = post.autor_post;
-  console.log(username)
   let titulo = post.titulo;
   let imagem = post.imagem;
   let texto = post.texto_post;
@@ -91,16 +90,15 @@ let exibirPosts = (posts) => {
     let autorComentario = posts[i].autor_comentario;
 
     comentarioTexto != "" && comentarioTexto != null
-    ? (comentarioTexto = `<p class="post-texto">${comentarioTexto}</p>`)
-    : comentarioTexto = "sem comentario";
+    ? (comentarioTexto = `<p class="comentario-texto">${comentarioTexto}</p>`)
+    : comentarioTexto = "Sem comentarios";
     autorComentario != "" && autorComentario != null
-    ? (autorComentario = `<p class="post-texto">${autorComentario}</p>`)
+    ? (autorComentario = `<p class="comentario-username">${autorComentario}</p>`)
     : autorComentario = "";
-    console.log(comentarioTexto)
 
-    com += `<div>
-              ${autorComentario}
-              ${comentarioTexto}
+    com += `<div class="comentario-card">
+            ${autorComentario}
+            ${comentarioTexto}
             </div>`;
 
   }
@@ -126,6 +124,10 @@ let exibirPosts = (posts) => {
                     </button>
                     </div>
                     </div>
+                    <br>
+                    <textarea id="ipt_comentario" class="ipt_comentario" maxlength="620" placeholder="Comente algo legal!"></textarea>
+                    <br>
+                    <hr class="quebra">
                     ${com}
                     </div>`;
 

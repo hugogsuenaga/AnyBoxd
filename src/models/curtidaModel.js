@@ -1,7 +1,6 @@
 let database = require("../database/config");
 
 function inserirCurtida(idPost, idUsuarioLogado) {
-  
   var instrucaoSql = `
     INSERT INTO curtida VALUES
         (${idPost}, ${idUsuarioLogado});
@@ -11,8 +10,6 @@ function inserirCurtida(idPost, idUsuarioLogado) {
 }
 
 function removerCurtida(idPost, idUsuarioLogado) {
-  console.log(idPost);
-  console.log(idUsuarioLogado);
   var instrucaoSql = `
     DELETE FROM curtida WHERE fkPost = ${idPost} AND fkUsuario = ${idUsuarioLogado};;
     `;
