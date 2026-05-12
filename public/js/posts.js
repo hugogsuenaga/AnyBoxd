@@ -30,10 +30,11 @@ function gerarEstrelas(nota) {
 let exibirPosts = (posts) => {
   let res = "";
   let placeholder = document.getElementById("posts-placeholder");
-
   if (posts.length < 1) {
+    return placeholder.innerHTML = 'Nenhum post encontrado'
   }
   for (let i = 0; i < posts.length; i++) {
+    let idUsuario = sessionStorage.ID_USUARIO
     let post = posts[i];
     let idPost = post.idPost;
     let username = post.username;
@@ -73,12 +74,12 @@ let exibirPosts = (posts) => {
                     </svg>
                 </button>
                 <span class="numero-comentarios">${numeroComentarios}</span>
-                <button class="btn-comentario-placeholder">️
+                <a class="btn-comentario-placeholder" href="/posts/comentario?dados=${idUsuario + ':' + idPost}">️
                     <svg class="stars-nota" viewBox="2.5 2.5 27 22" fill="none" stroke="black" 
                         stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M24.3 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h4a8.48 8.48 0 0 1 8 8v.5z"></path>
                     </svg>
-                </button>
+                </a>
                 </div>
               </div>
               </div>

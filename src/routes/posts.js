@@ -2,12 +2,18 @@ var express = require("express");
 var router = express.Router();
 var path = require("path");
 var postsController = require("../controllers/post");
-const curtidaModel = require("../models/curtidaModel");
 
 router.get("/addPost", (req, res) => {
     res.sendFile(path.join(__dirname, "../../public/view/posts/addPost.html"))
 })
 router.post("/insertPost", postsController.insertPost);
+
+
+router.get("/comentario", (req, res) => {
+    res.sendFile(path.join(__dirname, "../../public/view/posts/comentario.html"))
+})
+router.get("/getComentario", postsController.getComentario)
+router.post("/insertComentario", postsController.insertComentario);
 
 
 router.get("/recentes", (req, res) => {

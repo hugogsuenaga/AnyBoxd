@@ -8,17 +8,14 @@
     <title>AnyBoxd</title>
 
     <script src="/js/sessao.js"></script>
-    <script src="/js/dash.js"></script>
-    <script src="/js/posts.js"></script>
-    <script src="/js/curtida.js"></script>
-    <script src="/js/obterProfile.js"></script>
-    <script src="/js/grafico.js"></script>
+    <script src="/js/estrelas.js"></script>
     <script src="/js/comentario.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/curtida.js"></script>
 
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/stars.css" />
+    <link rel="stylesheet" href="/css/comentario.css" />
     <link rel="stylesheet" href="/css/posts.css" />
-    <link rel="stylesheet" href="/css/profile.css" />
 
   </head>
 
@@ -27,20 +24,17 @@
     <div id="header-placeholder"></div>
         </div>
     <main>
-        <div id="dados-placeholder"></div>
-        <div id="posts-placeholder"></div>
-        <div id="graph-placeholder">
-          <p class="p_graph">Likes dos ultimos 10 posts:</p>
-          <canvas id="graph"></canvas>
-        </div>
+      <div id="starL-placeholder"></div>
+      <div id="comentario-placeholder"></div>
+      <div id="starR-placeholder"></div>
     </main>
   </body>
 </html>
 <script>
   window.onload = () => {
     headerSessao()
-    getProfile()
-  }
-  
-</script>
+    estrelas()
+    comentario()
+  }    
 
+</script>
