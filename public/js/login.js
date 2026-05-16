@@ -5,7 +5,7 @@ function login() {
   if (email == "" || senha == "") {
     div_alerta.innerHTML =
       "Preencha todos os campos!";
-    return false;
+    return;
   }
   console.log("FORM LOGIN: ", email);
   console.log("FORM SENHA: ", senha);
@@ -21,19 +21,13 @@ function login() {
     }),
   })
     .then(function (resposta) {
-      console.log("ESTOU NO THEN DO entrar()!");
-
       if (resposta.ok) {
         console.log(resposta);
-
         resposta.json().then((json) => {
-          console.log(json);
-          console.log(JSON.stringify(json));
           sessionStorage.ID_USUARIO = json.id;
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.SENHA_USUARIO = json.senha;
-          console.log(json)
         });
         window.location = "/posts/recentes";
       } else {
@@ -48,5 +42,5 @@ function login() {
       console.log(erro);
     });
 
-  return false;
+  return;
 }

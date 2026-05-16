@@ -8,6 +8,7 @@ function curtir(button) {
   let idPost = button.dataset.idPost;
   let linkCurtir = `/posts/curtir?dados=${idPost + ':' + idUsuarioLoggado}`;
   let linkDescurtir = `/posts/descurtir?dados=${idPost + ':' + idUsuarioLoggado}`;
+  
   if (semCurtida || semNada) {
     fetch(linkCurtir, {
       method: "POST",

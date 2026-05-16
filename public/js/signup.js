@@ -6,7 +6,7 @@
     const senha = document.getElementById("ipt_senha").value;
 
     fetch("/signup", {
-      method: "post",
+      method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
         nome: nome,
